@@ -1,0 +1,28 @@
+#include<iostream>
+ 
+using namespace std;
+ 
+// find largest contiguous array in an array containing positive and negative integers
+// example array {1,2,1,-1,0,0,0,-2,1,8,0,-3} 
+ 
+ 
+int main()
+{
+    int a[] = {1,2,1,-1,0,0,0,-2,1,8,0,-3};
+    int maxsum,sumsubarray;
+    maxsum=sumsubarray=0;
+    
+    for(int i=0;i<sizeof(a)/sizeof(int);++i)
+    {
+        if(a[i]>=0){sumsubarray+=a[i];continue;}
+        if(sumsubarray>maxsum){maxsum=sumsubarray;
+        }
+        
+        sumsubarray=0;
+    }
+    
+    cout<<maxsum;
+    
+    
+    return 0;
+}
