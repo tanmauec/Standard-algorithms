@@ -1,0 +1,41 @@
+#include<iostream>
+
+using namespace std;
+
+// find largest contiguous array in an array containing positive and negative integers
+// example array {1,2,1,-1,2,10,0,0,0,-2,1,8,0,-3} 
+// print largestcontiguous subarray
+
+int main()
+{
+    int a[] = {1,2,1,-1,2,10,0,0,0,-2,1,8,0,-3};
+    int maxsum,sumsubarray;
+    maxsum=sumsubarray=0;
+    
+    int start,end,p;
+    start=end=0;
+    start=0;
+    
+    int size = sizeof(a)/sizeof(int);
+    
+    for(int i=0;i<size;++i)
+    {
+        
+        if(a[i]>=0){sumsubarray+=a[i];continue;}
+        if(sumsubarray>maxsum){maxsum=sumsubarray;
+start=p;        
+end=i-1;
+        
+        }
+//p comes at starting of a new subarray each time
+        if(i<size-1)p=i+1;
+        sumsubarray=0;
+    }
+    
+    cout<<maxsum;
+    cout<<"printing lca:";
+    for(int i=start;i<=end;++i)
+    {cout<<a[i];}
+    
+    return 0;
+}
